@@ -1,0 +1,40 @@
+/* 设置网站整体背景颜色为浅天蓝色 */
+body {
+background-color: lightblue;
+text-align: center; /* 所有内容居中 */
+}
+
+/* 设置标题样式 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", "宋体", serif;
+    font-size: 18px; /* 字号 */
+    font-weight: bold; /* 加粗 */
+    text-align: center; /* 居中 */
+    color: black;
+}
+
+/* 为中文标题特别设置 */
+h1:lang(zh), h2:lang(zh), h3:lang(zh), h4:lang(zh), h5:lang(zh), h6:lang(zh) {
+    font-family: "宋体", serif;
+}
+
+/* 设置正文样式 */
+p {
+    font-family: "Times New Roman", "宋体", serif;
+    font-size: 12px; /* 小四号 */
+    text-align: center; /* 居中 */
+    color: black;
+}
+
+/* 为中文正文特别设置 */
+p:lang(zh) {
+    font-family: "宋体", serif;
+}
+
+/* 设置文字部分 */
+.content-wrapper {
+    background-color: white;
+    margin: auto;
+    width: 80%;
+    text-align: center; /* 内容居中 */
+}

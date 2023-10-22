@@ -2,10 +2,14 @@ package com.example.javafullstack.controller;
 
 import com.example.javafullstack.UserRepository;
 import com.example.javafullstack.entity.User;
+import com.theokanning.openai.completion.CompletionChoice;
+import com.theokanning.openai.completion.CompletionRequest;
+import com.theokanning.openai.service.OpenAiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import javax.annotation.PostConstruct;
 
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 import org.springframework.ui.Model;
+
+import java.util.List;
 
 
 @RequestMapping("/user")
@@ -36,7 +42,7 @@ public class UserController {
     }
 
 //    @Autowired
-//    private JdbcTemplate jdbcTemplate;
+//    private JdbcTemplate;
 //
 //    @RequestMapping(value = "/getusers", method=RequestMethod.GET)
 //    @ResponseBody
@@ -75,5 +81,34 @@ public class UserController {
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
         return "all";
+    }
+
+    //访问Ask.html,直接用http://localhost:8089/Ask.html
+    @Value("${GPT_KEY}")
+    private String gptKey;
+
+    @PostMapping("/ask")
+    public String ChatGPT(@RequestParam String question, Model model) {
+        String token = gptKey;
+        System.out.println(question);
+        OpenAiService service = new OpenAiService(token);
+        CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("text-davinci-003")
+                .prompt(question)
+                .temperature(0.5)
+                .maxTokens(2048)
+                .topP(1D)
+                .frequencyPenalty(0D)
+                .presencePenalty(0D)
+                .build();
+        service.createCompletion(completionRequest).getChoices().forEach(System.out::println);
+
+        List<CompletionChoice> choiceList = service.createCompletion(completionRequest).getChoices();
+
+        String answer = choiceList.get(0).getText();
+
+        model.addAttribute("choices", answer);
+
+        return "GPTAnswers";
     }
 }

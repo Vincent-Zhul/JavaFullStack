@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Greeting</title>
 </head>
 <body>
-
-
 <div class="container">
     <br><br>
     <form class="form-horizontal" role="form" action="#" th:action="@{/user/greeting}" th:object="${user}" method="post">

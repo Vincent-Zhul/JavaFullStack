@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+<h1>Result</h1>
+<ul id="resultList">
+    <li th:text="${choices}"></li>
+</ul>
+<script>
+    fetch('/ask', {method: 'POST'})
+        .then(response => response.json())
+        .then(data => {
+            const resultList = document.getElementById('resultList');
+            data.choices.forEach(choice => {
+                const listItem = document.createElement('li');
+                listItem.appendChild(document.createTextNode(choice));
+                resultList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+</body>
+</html>
