@@ -1,17 +1,31 @@
 /* 设置网站整体背景颜色为浅天蓝色 */
 body {
-background-color: lightblue;
-text-align: center; /* 所有内容居中 */
+    background-color: lightblue;
+    text-align: center; /* 所有内容居中 */
 }
 
 /* 设置标题样式 */
-h1, h2, h3, h4, h5, h6 {
+h1 {
     font-family: "Times New Roman", "宋体", serif;
-    font-size: 18px; /* 字号 */
+    font-size: 48px; /* 字号 */
     font-weight: bold; /* 加粗 */
     text-align: center; /* 居中 */
     color: black;
 }
+
+h2 {
+    font-family: "Times New Roman", "宋体", serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+/* 以此类推，每一级标题字号递减 */
+h3 { font-size: 28px; }
+h4 { font-size: 24px; }
+h5 { font-size: 20px; }
+h6 { font-size: 16px; }
 
 /* 为中文标题特别设置 */
 h1:lang(zh), h2:lang(zh), h3:lang(zh), h4:lang(zh), h5:lang(zh), h6:lang(zh) {
@@ -21,7 +35,7 @@ h1:lang(zh), h2:lang(zh), h3:lang(zh), h4:lang(zh), h5:lang(zh), h6:lang(zh) {
 /* 设置正文样式 */
 p {
     font-family: "Times New Roman", "宋体", serif;
-    font-size: 12px; /* 小四号 */
+    font-size: 20px;
     text-align: center; /* 居中 */
     color: black;
 }

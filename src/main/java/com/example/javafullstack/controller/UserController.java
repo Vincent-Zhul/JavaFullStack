@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -110,5 +111,25 @@ public class UserController {
         model.addAttribute("choices", answer);
 
         return "GPTAnswers";
+    }
+
+    @RequestMapping("/mainpage")
+    public String mainPage() {
+        return "mainPage";
+    }
+
+    @RequestMapping("/redirectToSayHi")
+    public RedirectView redirectToSayHi() {
+        return new RedirectView("/user/sayhi");
+    }
+
+    @RequestMapping("/redirectToGreeting")
+    public RedirectView redirectToGreeting() {
+        return new RedirectView("/user/greeting");
+    }
+
+    @RequestMapping("/redirectToAsk")
+    public RedirectView redirectToAsk() {
+        return new RedirectView("/Ask.html");
     }
 }

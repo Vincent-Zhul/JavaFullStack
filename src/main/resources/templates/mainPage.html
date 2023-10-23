@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>
+   Main Page
+  </title>
+  <style>
+   body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(224, 255, 255, 0.80); /* Background set to light cyan */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+    }
+    h1 {
+        color: #333;
+        text-align: center; /* Title centered */
+        width: 100%;
+        padding: 20px;
+        margin: 0;
+        background-color: #fff;
+    }
+    button {
+        padding: 20px 40px; /* Button size increased */
+        margin: 10px;
+        cursor: pointer;
+        background-color: #4a6f8d; /* Button color set to blue-grey */
+        color: white; /* Text color set to white */
+        border: none;
+        border-radius: 5px;
+        font-weight: bold; /* Text set to bold */
+        width: 100%; /* Make button full width */
+    }
+    button:hover {
+        background-color: #5a6268;
+    }
+    form, a {
+        width: 100%;
+    }
+    /* Container to center buttons vertically */
+    .button-container {
+        width: 50%;
+        margin-top: 20px; /* Separate buttons from title */
+    }
+  </style>
+ </head>
+ <body>
+  <h1>
+   Welcome to the Main Page
+  </h1>
+  <div class="button-container">
+   <a href="/user/redirectToSayHi">
+    <button>View Personal Info</button>
+   </a>
+   <a href="/user/redirectToAsk">
+    <button>Ask some questions from ChatGPT</button>
+   </a>
+   <a href="/user/redirectToGreeting">
+    <button>Store a User Info</button>
+   </a>
+   <form action="/pdf" method="get">
+    <button type="submit">
+     View Personal Resume
+    </button>
+   </form>
+  </div>
+ </body>
+</html>
