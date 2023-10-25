@@ -32,14 +32,14 @@ public class UserController {
 
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping("/sayhi")
+    @RequestMapping("/info")
     public String sayHi() {
         logger.trace("========trace========");
         logger.debug("========debug========");
         logger.info("========info========");
         logger.warn("========warn========");
         logger.error("========error========");
-        return "index";
+        return "Info";
     }
 
 //    @Autowired
@@ -56,13 +56,13 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
-    @GetMapping("/greeting")
+    @GetMapping("/storing")
     public String greetingForm(Model model) {
         model.addAttribute("user", new User());
-        return "greeting";
+        return "dataStore";
     }
 
-    @PostMapping("/greeting")
+    @PostMapping("/storing")
     public String greetingSubmit(@ModelAttribute User user, Model model) {
         logger.trace("================ here ================");
         User newUser = new User();
@@ -73,22 +73,22 @@ public class UserController {
         newUser.setCity(user.getCity());
         userRepository.save(newUser);
         model.addAttribute("newUser", newUser); //result返回最新添加的数据
-        return "result";
+        return "newStoredData";
     }
 
 
-    @GetMapping("/all")
+    @GetMapping("/alldata")
     public String getMessage(Model model) {
         Iterable<User> users = userRepository.findAll();
         model.addAttribute("users", users);
-        return "all";
+        return "allStoredData";
     }
 
-    //访问Ask.html,直接用http://localhost:8089/Ask.html
+    //访问Ask.html,直接用http://localhost:8089/askGPT.html
     @Value("${GPT_KEY}")
     private String gptKey;
 
-    @PostMapping("/ask")
+    @PostMapping("/askGPT")
     public String ChatGPT(@RequestParam String question, Model model) {
         String token = gptKey;
         System.out.println(question);
@@ -118,18 +118,20 @@ public class UserController {
         return "mainPage";
     }
 
-    @RequestMapping("/redirectToSayHi")
-    public RedirectView redirectToSayHi() {
-        return new RedirectView("/user/sayhi");
+    @RequestMapping("/redirectToInfo")
+    public RedirectView redirectToInfo() {
+        return new RedirectView("/user/info");
     }
 
-    @RequestMapping("/redirectToGreeting")
-    public RedirectView redirectToGreeting() {
-        return new RedirectView("/user/greeting");
-    }
+    @RequestMapping("/redirectToStoring")
+    public RedirectView redirectToStoring() {
+        return new RedirectView("/user/storing");}
 
-    @RequestMapping("/redirectToAsk")
+    @RequestMapping("/redirectToAllData")
+    public RedirectView redirectToAllData() {
+        return new RedirectView("/user/alldata");}
+
+    @RequestMapping("/redirectToAskGPT")
     public RedirectView redirectToAsk() {
-        return new RedirectView("/Ask.html");
-    }
+        return new RedirectView("/askGPT.html");}
 }

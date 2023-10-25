@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" th:href="@{/css/newDataStyle.css}">
+</head>
+<body>
+<div class="container">
+    <h1>New User Added</h1>
+    <div class="user-details">
+        <p th:text="'ID: ' + ${newUser.id}"></p>
+        <p th:text="'Name: ' + ${newUser.name}"></p>
+        <p th:text="'Age: ' + ${newUser.age}"></p>
+        <p th:text="'Gender: ' + ${newUser.gender}"></p>
+        <p th:text="'Email: ' + ${newUser.email}"></p>
+        <p th:text="'City: ' + ${newUser.city}"></p>
+    </div>
+</div>
+</body>
+</html>

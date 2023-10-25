@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+    <link rel="stylesheet" th:href="@{/css/allDataStyle.css}">
+</head>
+<body>
+<div class="container">
+    <h1>List of All Users</h1>
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.gender}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.city}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

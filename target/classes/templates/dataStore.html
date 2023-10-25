@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting</title>
+    <link rel="stylesheet" th:href="@{/css/dataStoreStyle.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome!</h1>
+    <form id="detailsForm" th:action="@{/user/storing}" th:object="${user}" method="post">
+        <div class="input-group">
+            <label for="nameInput">Name:</label>
+            <input id="nameInput" type="text" th:field="*{name}" placeholder="Your Name">
+        </div>
+        <div class="input-group">
+            <label for="ageInput">Age:</label>
+            <input id="ageInput" type="number" th:field="*{age}" placeholder="Your Age">
+        </div>
+        <div class="input-group">
+            <label for="genderInput">Gender:</label>
+            <select id="genderInput" th:field="*{gender}">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="emailInput">Email:</label>
+            <input id="emailInput" type="email" th:field="*{email}" placeholder="Your Email">
+        </div>
+        <div class="input-group">
+            <label for="cityInput">City:</label>
+            <input id="cityInput" type="text" th:field="*{city}" placeholder="Your City">
+        </div>
+        <div class="input-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

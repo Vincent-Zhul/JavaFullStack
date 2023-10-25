@@ -1,0 +1,30 @@
+body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        header {
+            background: #50b3a2;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        section {
+            margin: 20px 0;
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        #bio {
+            display: flex;
+            justify-content: space-between;
+        }
+        #bio img {
+            border-radius: 50%;
+            align-self: center;
+        }

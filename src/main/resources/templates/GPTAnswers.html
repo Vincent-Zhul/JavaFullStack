@@ -10,7 +10,7 @@
     <li th:text="${choices}"></li>
 </ul>
 <script>
-    fetch('/ask', {method: 'POST'})
+    fetch('/user/askGPT', {method: 'POST'})
         .then(response => response.json())
         .then(data => {
             const resultList = document.getElementById('resultList');
