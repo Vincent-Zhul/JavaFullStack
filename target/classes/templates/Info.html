@@ -25,9 +25,11 @@
         <p id="age"></p>
         <p>Career Seeking: Software Development Engineer</p>
         <p>Languages: English, Chinese (Mandarin), French</p>
-        <button type="button" onclick="viewResume()">
-            View Resume
-        </button>
+        <form action="/pdf" method="get">
+            <button type="submit">
+                View Resume
+            </button>
+        </form>
     </div>
     <img src="/picture/Me.jpg" alt="" width="120" height="160">
 </section>
@@ -75,12 +77,5 @@
     <p>Email: <a href="mailto:zhulei010414@gmail.com">zhulei010414@gmail.com</a></p>
     <p>Website: <a href="https://github.com/Vincent-Zhul" target="_blank">GitHub</a></p>
 </section>
-<script>
-    async function viewResume() {
-        let response = await fetch('/pdf');
-        let pdfUrl = await response.text();
-        window.open(pdfUrl, '_blank');
-    }
-</script>
 </body>
 </html>
