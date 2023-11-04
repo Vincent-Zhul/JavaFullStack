@@ -71,8 +71,8 @@ public class UserController {
         newUser.setGender(user.getGender());
         newUser.setEmail(user.getEmail());
         newUser.setCity(user.getCity());
-        userRepository.save(newUser);
-        model.addAttribute("newUser", newUser); //result返回最新添加的数据
+        userRepository.save(user);
+    //    model.addAttribute("newUser", newUser); //返回最新添加的数据
         return "newStoredData";
     }
 
@@ -84,7 +84,6 @@ public class UserController {
         return "allStoredData";
     }
 
-    //访问Ask.html,直接用http://localhost:8089/askGPT.html
     @Value("${GPT_KEY}")
     private String gptKey;
 
@@ -108,6 +107,7 @@ public class UserController {
 
         String answer = choiceList.get(0).getText();
 
+        model.addAttribute("prompt", question);
         model.addAttribute("choices", answer);
 
         return "GPTAnswers";

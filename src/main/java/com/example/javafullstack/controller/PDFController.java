@@ -17,7 +17,7 @@ public class PDFController {
 
     @GetMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<Resource> getPdf() throws IOException {
-        Resource resource = new ClassPathResource("/static/Resume.pdf");
+        Resource resource = new ClassPathResource("/Resume.pdf");
         Path path = Paths.get(resource.getURI());
 
         byte[] pdfBytes = Files.readAllBytes(path);
